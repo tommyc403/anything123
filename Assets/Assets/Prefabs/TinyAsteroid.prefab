@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6579146172748057112}
   - component: {fileID: 1196092804063828156}
   - component: {fileID: 5029585498736618487}
+  - component: {fileID: -7088547858301484276}
   m_Layer: 0
   m_Name: TinyAsteroid
   m_TagString: Untagged
@@ -177,3 +178,16 @@ PolygonCollider2D:
       - {x: 0.04087096, y: 0.035}
       - {x: 0.029504701, y: 0.04589098}
   m_UseDelaunayMesh: 1
+--- !u!114 &-7088547858301484276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715712920005507438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a428a7a19125748bfbcdc8df203370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  CollisionDamage: 1
