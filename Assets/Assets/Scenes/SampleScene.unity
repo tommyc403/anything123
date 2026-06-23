@@ -6293,7 +6293,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7851470227991654557, guid: 1b6f7d71e04f33c4fb8f87ea0512ee0a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.7108608, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6358,6 +6358,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spaceship
   EnginePower: 10
   TurnPower: -20
+  MaxHealth: 3
+  CurrentHealth: 0
+  FiringRate: 0.33
+  BulletRef: {fileID: 7066820361137419228, guid: 00ff056f4b7f82440b58194def4a60f5, type: 3}
+  BulletSpeed: 100
 --- !u!60 &1751595812
 PolygonCollider2D:
   m_ObjectHideFlags: 0

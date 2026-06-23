@@ -20,14 +20,29 @@ public class Spaceship : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
+   
+    public float FiringRate = 0.33f;
+    private float fireTimer = 0f;
+
     private void Update()
     {
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
         ApplyThrust(vert);
         ApplyTorque(horiz);
+        
     }
 
+    private void UpdateFiring()
+    {
+        bool isFiring = Input.GetButton("Fire1");
+        fireTimer = fireTimer - Time.deltaTime;
+        if (isFiring && fireTimer <= 0f)
+        {
+            FireBullet();
+            fireTimer = FiringRate;
+        }
+    }
     private void ApplyThrust(float amount)
     {
         Vector2 thrust = transform.up * EnginePower * Time.deltaTime * amount;
@@ -40,6 +55,22 @@ public class Spaceship : MonoBehaviour
 
 
     }
+    
+        public GameObject BulletRef;
+        public float BulletSpeed = 100f;
+
+        public void FireBullet()
+    {
+
+        GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+        Vector2 force = transform.up * BulletSpeed;
+
+        rb.AddForce(force);
+    }
+
+
     public void TakeDamage(float damage)
     { 
 
@@ -56,6 +87,7 @@ public class Spaceship : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
 
 
 
