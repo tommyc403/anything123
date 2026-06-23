@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+    public float FiringRate = 0.33f;
+    private float fireTimer = 0f;
 
     public float EnginePower = 10f;
     public float TurnPower = 10f;
@@ -20,9 +22,9 @@ public class Spaceship : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
+  
    
-    public float FiringRate = 0.33f;
-    private float fireTimer = 0f;
+    
 
     private void Update()
     {

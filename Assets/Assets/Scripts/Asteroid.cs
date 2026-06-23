@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    public float MaxHealth = 3f;
+    public float CurrentHealth;
     public float CollisionDamage = 1f;
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -14,9 +16,27 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+
+        CurrentHealth = CurrentHealth - damage;
+        if (CurrentHealth <= 0) 
+        {
+            Explode();
+        }
+
+            
+    }
+
+    public void Explode()
+    {
+        Debug.Log("Asteroid Obliterated");
+        Destroy(gameObject);
+    }
+
     void Start()
     {
-        
+        CurrentHealth = MaxHealth;
     }
 
     // Update is called once per frame
