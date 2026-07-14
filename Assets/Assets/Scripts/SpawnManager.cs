@@ -31,15 +31,6 @@ public class SpawnManager : MonoBehaviour
         Vector2 direction = (destination - from).normalized;
         return direction;
     }
-
-    public void SpawnNewAsteroid()
-    {
-        Vector2 force = PushDirection(OffscreenSpawnPoint) * Pushforce;
-        Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
-        rb.AddForce(force);
-
-    }
-
     public Vector3 OffscreenSpawnPoint()
     {
         Vector2 randomPos = Random.insideUnitCircle;
@@ -67,7 +58,7 @@ public class SpawnManager : MonoBehaviour
 
             if (TotalAsteroidValue() < SpawnThreshold)
             {
-                SpawnNewAsteroid();
+              
                 {
                     int asteroidIndex = Random.Range(0, AsteroidRefs.Length);
                     GameObject asteroidRef = AsteroidRefs[asteroidIndex];

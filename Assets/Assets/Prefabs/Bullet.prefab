@@ -155,7 +155,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00027864304, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_Radius: 0.03552595
 --- !u!114 &3412371140972284780
 MonoBehaviour:
@@ -169,3 +169,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e11767b4431474c8ce4564337bc058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  Damage: 1
+  ExplosionRef: {fileID: 2328700519895275775, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}

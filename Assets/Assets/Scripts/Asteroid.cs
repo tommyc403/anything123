@@ -8,11 +8,11 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        CurrentHealth = HealthMax; 
+        CurrentHealth = HealthMax;
     }
-   
+
     public float CollisionDamage = 1f;
-    
+
     public int SpawnValue = 3;
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -28,28 +28,25 @@ public class Asteroid : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHealth = CurrentHealth - damage;
-        if (CurrentHealth <= 0) 
+        if (CurrentHealth <= 0)
         {
             Explode();
         }
 
-            
+
     }
 
     public void Explode()
     {
-        Debug.Log("Asteroid Obliterated");
-        Destroy(gameObject);
-    }
 
-    void Start()
-    {
-        CurrentHealth = HealthMax;
-    }
+        {
+            Debug.Log("Asteroid Obliterated");
+            Destroy(gameObject);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        {
+            CurrentHealth = HealthMax;
+        }
     }
 }
