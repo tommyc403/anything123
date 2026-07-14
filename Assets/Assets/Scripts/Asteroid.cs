@@ -2,9 +2,18 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    public float MaxHealth = 3f;
+    public float HealthMax = 3f;
+
     public float CurrentHealth;
+
+    private void Start()
+    {
+        CurrentHealth = HealthMax; 
+    }
+   
     public float CollisionDamage = 1f;
+    
+    public int SpawnValue = 3;
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -18,7 +27,6 @@ public class Asteroid : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
         CurrentHealth = CurrentHealth - damage;
         if (CurrentHealth <= 0) 
         {
@@ -36,7 +44,7 @@ public class Asteroid : MonoBehaviour
 
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        CurrentHealth = HealthMax;
     }
 
     // Update is called once per frame

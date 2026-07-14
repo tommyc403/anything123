@@ -5,7 +5,25 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+
+    public void TakeDamage(float damage)
+    {
+        CurrentHealth = CurrentHealth - damage;
+        //CurrentHealth -= damage;
+        if (CurrentHealth <= 0)
+        {
+            Explode();
+        }
+    }
+
+    public void Explode()
+    {
+        Debug.Log("Your piloting skills need some work...");
+        Destroy(gameObject);
+    }
+
     public float FiringRate = 0.33f;
+
     private float fireTimer = 0f;
 
     public float EnginePower = 10f;
@@ -22,11 +40,11 @@ public class Spaceship : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
-  
-   
-    
 
-    private void Update()
+
+
+
+    public void Update()
     {
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
@@ -35,7 +53,7 @@ public class Spaceship : MonoBehaviour
         
     }
 
-    private void UpdateFiring()
+    public void UpdateFiring()
     {
         bool isFiring = Input.GetButton("Fire1");
         fireTimer = fireTimer - Time.deltaTime;
@@ -70,23 +88,6 @@ public class Spaceship : MonoBehaviour
         Vector2 force = transform.up * BulletSpeed;
 
         rb.AddForce(force);
-    }
-
-
-    public void TakeDamage(float damage)
-    { 
-
-     CurrentHealth = CurrentHealth - damage;
-        //CurrentHealth -= damage;
-        if (CurrentHealth <= 0)
-    
-        Explode();
-    }
-
-    public void Explode()
-    {
-        Debug.Log("GAME OVER");
-        Destroy(gameObject);
     }
 }
 
