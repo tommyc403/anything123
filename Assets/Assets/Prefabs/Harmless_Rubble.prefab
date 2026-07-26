@@ -243,4 +243,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8386c20de86454bad63a9b6f4a5dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDestroy
-  Lifetime: 7
+  Lifetime: 6
