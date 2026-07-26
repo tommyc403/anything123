@@ -5,7 +5,17 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+    public float FiringRate = 0.33f;
 
+    private float fireTimer = 0f;
+
+    public float EnginePower = 10f;
+    public float TurnPower = 10f;
+    public float MaxHealth = 3f;
+    public float CurrentHealth;
+
+    public GameObject BulletRef;
+    public float BulletSpeed = 100f;
     public void TakeDamage(float damage)
     {
         CurrentHealth = CurrentHealth - damage;
@@ -22,14 +32,16 @@ public class Spaceship : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public float FiringRate = 0.33f;
+    public void FireBullet()
+    {
 
-    private float fireTimer = 0f;
+        GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-    public float EnginePower = 10f;
-    public float TurnPower = 10f;
-    public float MaxHealth = 3f;
-    public float CurrentHealth;
+        Vector2 force = transform.up * BulletSpeed;
+
+        rb.AddForce(force);
+    }
 
 
     private Rigidbody2D rb2D;
@@ -50,10 +62,19 @@ public class Spaceship : MonoBehaviour
         float vert = Input.GetAxis("Vertical");
         ApplyThrust(vert);
         ApplyTorque(horiz);
-        
+
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+            Vector2 force = transform.up * BulletSpeed;
+
+            rb.AddForce(force);
+        }
     }
 
-    public void UpdateFiring()
+    private void UpdateFiring()
     {
         bool isFiring = Input.GetButton("Fire1");
         fireTimer = fireTimer - Time.deltaTime;
@@ -76,19 +97,6 @@ public class Spaceship : MonoBehaviour
 
     }
     
-        public GameObject BulletRef;
-        public float BulletSpeed = 100f;
-
-        public void FireBullet()
-    {
-
-        GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-        Vector2 force = transform.up * BulletSpeed;
-
-        rb.AddForce(force);
-    }
 }
 
 

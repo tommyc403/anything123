@@ -1827,13 +1827,13 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+    width: 1.17
+    height: 1.25
+  near clip plane: 0
+  far clip plane: 1000.09
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1858,7 +1858,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -0.04, z: -10}
+  m_LocalPosition: {x: 0.06, y: -0.04, z: -3.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6356,11 +6356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7c3fdcae510cd46be6a58f68a44647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spaceship
+  FiringRate: 0.33
   EnginePower: 10
   TurnPower: -20
   MaxHealth: 3
   CurrentHealth: 0
-  FiringRate: 0.33
   BulletRef: {fileID: 7066820361137419228, guid: 00ff056f4b7f82440b58194def4a60f5, type: 3}
   BulletSpeed: 100
 --- !u!60 &1751595812
@@ -8801,6 +8801,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1082547515796913605, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
+      propertyPath: lengthInSec
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082547515796913605, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
       propertyPath: UVModule.mode
       value: 0
       objectReference: {fileID: 0}
@@ -8827,6 +8831,10 @@ PrefabInstance:
     - target: {fileID: 1082547515796913605, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 1082547515796913605, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1082547515796913605, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
       propertyPath: UVModule.sprites.Array.size

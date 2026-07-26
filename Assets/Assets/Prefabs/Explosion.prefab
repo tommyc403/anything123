@@ -41,8 +41,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2328700519895275775}
   serializedVersion: 8
-  lengthInSec: 5
-  simulationSpeed: 1
+  lengthInSec: 0.3
+  simulationSpeed: 4.56
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.05
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.63
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -552,7 +552,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.7866199
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -604,7 +604,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 4
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -751,7 +751,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.21
       mode: 0
       spread: 0
       speed:
@@ -1368,7 +1368,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
+    enabled: 1
     mode: 0
     timeMode: 0
     fps: 30
@@ -1479,7 +1479,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     speedRange: {x: 0, y: 1}
-    tilesX: 1
+    tilesX: 3
     tilesY: 1
     animationType: 0
     rowIndex: 0
@@ -1487,7 +1487,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 1970586249787754727, guid: c62d4ab1a33a32a41a82c51328f92091, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4782,7 +4782,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 486e5a520f69f5c41b789f594e3f1774, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
