@@ -207,7 +207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3945710163799776478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5a428a7a19125748bfbcdc8df203370, type: 3}
   m_Name: 
@@ -223,7 +223,7 @@ MonoBehaviour:
   - {fileID: 3715712920005507438, guid: 475c38c840cb9a342a651b1cdfbb1e83, type: 3}
   ExplosionRef: {fileID: 0}
   ChunkRefs: []
-  ChunksMin: 4
+  ChunksMin: 0
   ChunksMax: 7
   ExplodeDist: 0.5
   ExplosionForce: 10

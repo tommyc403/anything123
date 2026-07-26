@@ -213,7 +213,7 @@ MonoBehaviour:
   - {fileID: 3715712920005507438, guid: 475c38c840cb9a342a651b1cdfbb1e83, type: 3}
   ExplosionRef: {fileID: 0}
   ChunkRefs: []
-  ChunksMin: 4
+  ChunksMin: 0
   ChunksMax: 5
   ExplodeDist: 0.5
   ExplosionForce: 10

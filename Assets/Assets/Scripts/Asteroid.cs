@@ -20,12 +20,13 @@ public class Asteroid : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Asteroid asteroid = collision.gameObject.GetComponent<Asteroid>();
-        if (asteroid)
+        Bullet bullet = collision.GetComponent<Bullet>();
+
+        if (bullet != null)
         {
-            asteroid.TakeDamage(Damage);
-            Explode();
-            Destroy(gameObject);
+            TakeDamage(bullet.Damage);
+            Debug.Log("Hey this working?");
+            Destroy(bullet.gameObject);
         }
     }
 
