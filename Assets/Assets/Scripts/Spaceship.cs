@@ -29,6 +29,7 @@ public class Spaceship : MonoBehaviour
     public void Explode()
     {
         Debug.Log("Your piloting skills need some work...");
+
         Destroy(gameObject);
     }
 

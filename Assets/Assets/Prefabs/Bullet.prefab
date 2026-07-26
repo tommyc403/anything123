@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3843832863294264330}
   - component: {fileID: 3783137421190776248}
   - component: {fileID: 3412371140972284780}
+  - component: {fileID: -9159331123795245593}
+  - component: {fileID: 571882932785304942}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -171,3 +173,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
   Damage: 1
   ExplosionRef: {fileID: 2328700519895275775, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
+--- !u!114 &-9159331123795245593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7066820361137419228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de8386c20de86454bad63a9b6f4a5dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoDestroy
+  Lifetime: 4
+--- !u!114 &571882932785304942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7066820361137419228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8f70b3f0c6d049bb4f6ac6204c6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2557397505059347686}
   - component: {fileID: 1754744199161361479}
   - component: {fileID: 1736194287443063560}
+  - component: {fileID: 7391493455133784476}
   m_Layer: 0
   m_Name: FakeAsteroid
   m_TagString: Untagged
@@ -174,3 +175,15 @@ PolygonCollider2D:
       - {x: 0.0067989863, y: 0.29344913}
       - {x: -0.015347317, y: 0.29839948}
   m_UseDelaunayMesh: 1
+--- !u!114 &7391493455133784476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461383664524266353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8f70b3f0c6d049bb4f6ac6204c6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap

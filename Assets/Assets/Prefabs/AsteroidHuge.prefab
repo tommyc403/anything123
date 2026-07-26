@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 560706753200887452}
   - component: {fileID: 5953798537642305348}
   - component: {fileID: 6318097944585673472}
+  - component: {fileID: 761686614469690892}
   m_Layer: 0
   m_Name: AsteroidHuge
   m_TagString: Untagged
@@ -202,4 +203,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a428a7a19125748bfbcdc8df203370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  HealthMax: 3
+  CurrentHealth: 0
+  Chunks:
+  - {fileID: 3811759494330181847, guid: 384620d6c97c14c43a33cf6947143c88, type: 3}
+  - {fileID: 3811759494330181847, guid: 384620d6c97c14c43a33cf6947143c88, type: 3}
+  - {fileID: 569654393983902053, guid: 03bb3a74ef9845d4084c27d71b30634c, type: 3}
+  - {fileID: 3715712920005507438, guid: 475c38c840cb9a342a651b1cdfbb1e83, type: 3}
+  ChunkRefs: []
   CollisionDamage: 1
+  SpawnValue: 3
+--- !u!114 &761686614469690892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7575475315839557324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8f70b3f0c6d049bb4f6ac6204c6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
