@@ -95,12 +95,9 @@ public class SpawnManager : MonoBehaviour
 
             if (total < SpawnThreshold)
             {
-
-              
                 SpawnNewAsteroid();
-
-
             }
+
             else {
             
             }

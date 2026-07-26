@@ -5,6 +5,29 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
+    public int Score = 0;
+    public int ScoreValue = 10;
+
+    public int GetHighScore()
+    {
+        return PlayerPrefs.GetInt("HighScore", 0);
+    }
+
+    public void SetHighScore(int score)
+    {
+        PlayerPrefs.SetInt("HighScore", 0);
+    }
+
+    public void GameOver()
+    {
+        bool celebrateHighScore = false;
+        if (ScoreValue > GetHighScore())
+        {
+            SetHighScore(Score);
+            celebrateHighScore = true;
+        }
+    }
+
     public float FiringRate = 0.33f;
 
     private float fireTimer = 0f;
@@ -28,6 +51,13 @@ public class Spaceship : MonoBehaviour
 
     public void Explode()
     {
+
+        Spaceship ship = Object.FindFirstObjectByType<Spaceship>();
+        if (ship != null)
+        {
+            ship.ScoreValue += ScoreValue;
+        }
+
         Debug.Log("Your piloting skills need some work...");
 
         Destroy(gameObject);
