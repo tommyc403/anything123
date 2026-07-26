@@ -99,15 +99,3 @@ public class Spaceship : MonoBehaviour
     }
     
 }
-
-
-
-
-
-
-
-
-    
-
- 
-

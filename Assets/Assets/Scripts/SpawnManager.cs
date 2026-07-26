@@ -3,9 +3,32 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
+    public void SpawnNewAsteroid()
+    {
+       
+
+
+        int asteroidIndex = Random.Range(0, AsteroidRefs.Length);
+        GameObject asteroidRef = AsteroidRefs[asteroidIndex];
+       
+
+        Vector3 spawnPoint = OffscreenSpawnPoint();
+        GameObject asteroid = Instantiate(asteroidRef, spawnPoint, Quaternion.identity);
+        
+  
+        {
+            Vector2 force = PushDirection(spawnPoint) * PushForce;
+            Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
+          
+            rb.AddForce(force);
+        }
+      
+
+    }
     public GameObject[] AsteroidRefs;
     public float CheckInterval = 3f;
-    public float PushForce = 100f;
+    public float PushForce = 0.5f;
     public int SpawnThreshold = 10;
 
     private float checkTimer = 0f;
@@ -22,6 +45,8 @@ public class SpawnManager : MonoBehaviour
         return value;
     }
 
+
+
     public float Inaccuracy = 2f;
 
     public Vector2 PushDirection(Vector2 from)
@@ -33,17 +58,7 @@ public class SpawnManager : MonoBehaviour
         return direction;
     }
 
-    public void SpawnNewAsteroid()
-    {
 
-        int asteroidIndex = Random.Range(0, AsteroidRefs.Length);
-        GameObject asteroidRef = AsteroidRefs[asteroidIndex];
-
-        Vector3 spawnPoint = OffscreenSpawnPoint();
-
-        GameObject asteroid = Instantiate(asteroidRef, spawnPoint, transform.rotation);
-
-    }
 
    
     public Vector3 OffscreenSpawnPoint()
@@ -59,43 +74,41 @@ public class SpawnManager : MonoBehaviour
 
    
     void Start()
-    {
-
-    }
+   
+        {
+         
+        }
+  
 
 
     public void Update()
     {
+
+       
         checkTimer += Time.deltaTime;
         if (checkTimer > CheckInterval)
         {
             checkTimer = 0f;
 
-            if (TotalAsteroidValue() < SpawnThreshold)
+            int total = TotalAsteroidValue();
+
+
+            if (total < SpawnThreshold)
             {
+
               
-                {
-                    int asteroidIndex = Random.Range(0, AsteroidRefs.Length);
-                    GameObject asteroidRef = AsteroidRefs[asteroidIndex];
-
-                    Vector3 spawnPoint = OffscreenSpawnPoint();
-
-                    GameObject asteroid = Instantiate(asteroidRef, spawnPoint, transform.rotation);
-                }
-            }
-        
-
-        
-            checkTimer = 0f;
-
-            if (TotalAsteroidValue() < SpawnThreshold)
-            {
                 SpawnNewAsteroid();
+
+
             }
+            else {
+            
+            }
+           
         }
 
     }
 
-    
-    
+   
+
 }

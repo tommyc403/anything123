@@ -3,18 +3,19 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
 
+    public GameObject[] Chunks;
+    public GameObject ExplosionRef;
     public GameObject[] ChunkRefs;
     public int ChunksMin = 0;
     public int ChunksMax = 4;
+
     public float ExplodeDist = 0.5f;
     public float ExplosionForce = 10f;
+
     public float HealthMax = 3f;
-
     public float CurrentHealth;
-
-    public GameObject[] Chunks;
-    public GameObject ExplosionRef;
     public float Damage = 1f;
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,6 +63,8 @@ public class Asteroid : MonoBehaviour
 
         }
 
+
+        Destroy(gameObject);
         Instantiate(ExplosionRef, transform.position, transform.rotation);
         Destroy(gameObject);
 
@@ -81,17 +84,12 @@ public class Asteroid : MonoBehaviour
 
         Rigidbody2D rb = chunk.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * ExplosiveForce);
+        Destroy(gameObject);
     }
-
-
 
    
     public int SpawnValue = 3;
-    
-
-   
-
-
+ 
 
     private void Start()
     {
@@ -99,9 +97,6 @@ public class Asteroid : MonoBehaviour
     }
 
     public float CollisionDamage = 1f;
-
-    
-
 
     public Vector2 ExplosiveForce { get; private set; }
 
@@ -115,8 +110,4 @@ public class Asteroid : MonoBehaviour
         }
     }
 
-  
-    
-
-    
 }

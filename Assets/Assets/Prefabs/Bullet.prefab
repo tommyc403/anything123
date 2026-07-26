@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68e11767b4431474c8ce4564337bc058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bullet
-  Damage: 1
   ExplosionRef: {fileID: 2328700519895275775, guid: 3131ac5d64e842d43bcd19c1fd719375, type: 3}
+  Damage: 1
 --- !u!114 &-9159331123795245593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8386c20de86454bad63a9b6f4a5dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AutoDestroy
-  Lifetime: 4
+  Lifetime: 1.5
 --- !u!114 &571882932785304942
 MonoBehaviour:
   m_ObjectHideFlags: 0

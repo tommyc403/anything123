@@ -11,11 +11,13 @@ GameObject:
   - component: {fileID: 626023119819234061}
   - component: {fileID: 6579146172748057112}
   - component: {fileID: 1196092804063828156}
-  - component: {fileID: 5029585498736618487}
   - component: {fileID: -7088547858301484276}
   - component: {fileID: -8520725587664263283}
+  - component: {fileID: -6130002724848138436}
+  - component: {fileID: 2296243726050085415}
+  - component: {fileID: 6915592523224366517}
   m_Layer: 0
-  m_Name: AsteroidTiny
+  m_Name: Harmless_Rubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +124,61 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!60 &5029585498736618487
+--- !u!114 &-7088547858301484276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715712920005507438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a428a7a19125748bfbcdc8df203370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
+  Chunks:
+  - {fileID: 0}
+  ExplosionRef: {fileID: 0}
+  ChunkRefs: []
+  ChunksMin: 0
+  ChunksMax: 4
+  ExplodeDist: 0.5
+  ExplosionForce: 10
+  HealthMax: 1
+  CurrentHealth: 0
+  Damage: 1
+  SpawnValue: 0
+  CollisionDamage: 0
+--- !u!114 &-8520725587664263283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715712920005507438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e8f70b3f0c6d049bb4f6ac6204c6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
+--- !u!114 &-6130002724848138436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715712920005507438}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4b72326780a8a4e823e82f6da42b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
+  AsteroidRefs: []
+  CheckInterval: 3
+  PushForce: 1000
+  SpawnThreshold: 10
+  Inaccuracy: 2
+--- !u!60 &2296243726050085415
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,18 +224,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.039504703, y: 0.044524603}
-      - {x: -0.04976237, y: 0.034615874}
-      - {x: -0.050434113, y: -0.035037816}
-      - {x: -0.039504584, y: -0.04634642}
-      - {x: 0.0087531805, y: -0.04443133}
-      - {x: 0.03910902, y: -0.026306562}
-      - {x: 0.05089098, y: -0.014504705}
-      - {x: 0.050945878, y: 0.0039911866}
-      - {x: 0.04087096, y: 0.035}
-      - {x: 0.029504701, y: 0.04589098}
+    - - {x: -0.06, y: 0.055}
+      - {x: -0.06, y: -0.055}
+      - {x: 0.03, y: -0.055}
+      - {x: 0.06, y: -0.035}
+      - {x: 0.06, y: 0.035}
+      - {x: 0.049999997, y: 0.055}
   m_UseDelaunayMesh: 1
---- !u!114 &-7088547858301484276
+--- !u!114 &6915592523224366517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,22 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3715712920005507438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a428a7a19125748bfbcdc8df203370, type: 3}
+  m_Script: {fileID: 11500000, guid: de8386c20de86454bad63a9b6f4a5dbb, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Asteroid
-  HealthMax: 3
-  CurrentHealth: 0
-  CollisionDamage: 1
-  SpawnValue: 3
---- !u!114 &-8520725587664263283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715712920005507438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e8f70b3f0c6d049bb4f6ac6204c6d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenWrap
+  m_EditorClassIdentifier: Assembly-CSharp::AutoDestroy
+  Lifetime: 8
