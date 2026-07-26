@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    public GameObject[] AsteroidRefs;
+    public float CheckInterval = 3f;
+    public float PushForce = 100f;
+    public int SpawnThreshold = 10;
+
+    private float checkTimer = 0f;
+
     public int TotalAsteroidValue()
     {
         Asteroid[] asteroids =
@@ -15,12 +22,6 @@ public class SpawnManager : MonoBehaviour
         return value;
     }
 
-    public GameObject[] AsteroidRefs;
-    public float CheckInterval = 3f;
-    public float Pushforce = 100f;
-    public int SpawnThreshold = 10;
-
-    public float checkTimer = 0f;
     public float Inaccuracy = 2f;
 
     public Vector2 PushDirection(Vector2 from)
@@ -31,6 +32,20 @@ public class SpawnManager : MonoBehaviour
         Vector2 direction = (destination - from).normalized;
         return direction;
     }
+
+    public void SpawnNewAsteroid()
+    {
+
+        int asteroidIndex = Random.Range(0, AsteroidRefs.Length);
+        GameObject asteroidRef = AsteroidRefs[asteroidIndex];
+
+        Vector3 spawnPoint = OffscreenSpawnPoint();
+
+        GameObject asteroid = Instantiate(asteroidRef, spawnPoint, transform.rotation);
+
+    }
+
+   
     public Vector3 OffscreenSpawnPoint()
     {
         Vector2 randomPos = Random.insideUnitCircle;
@@ -42,13 +57,13 @@ public class SpawnManager : MonoBehaviour
         return result;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+
     public void Update()
     {
         checkTimer += Time.deltaTime;
@@ -68,8 +83,19 @@ public class SpawnManager : MonoBehaviour
                     GameObject asteroid = Instantiate(asteroidRef, spawnPoint, transform.rotation);
                 }
             }
+        
+
+        
+            checkTimer = 0f;
+
+            if (TotalAsteroidValue() < SpawnThreshold)
+            {
+                SpawnNewAsteroid();
+            }
         }
 
     }
+
+    
     
 }

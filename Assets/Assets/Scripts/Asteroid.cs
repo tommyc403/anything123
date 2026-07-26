@@ -3,8 +3,20 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
 
+    public GameObject[] ChunkRefs;
+    public int ChunksMin = 0;
+    public int ChunksMax = 4;
+    public float ExplodeDist = 0.5f;
+    public float ExplosionForce = 10f;
+    public float HealthMax = 3f;
+
+    public float CurrentHealth;
+
+    public GameObject[] Chunks;
     public GameObject ExplosionRef;
     public float Damage = 1f;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Asteroid asteroid = collision.gameObject.GetComponent<Asteroid>();
@@ -12,13 +24,10 @@ public class Asteroid : MonoBehaviour
         {
             asteroid.TakeDamage(Damage);
             Explode();
+            Destroy(gameObject);
         }
     }
-    public float HealthMax = 3f;
 
-    public float CurrentHealth;
-
-    public GameObject[] Chunks;
 
     public void TakeDamage(float damage)
     {
@@ -30,7 +39,7 @@ public class Asteroid : MonoBehaviour
                 Debug.Log("Asteroid Obliterated");
                 Destroy(gameObject);
             }
-
+            Destroy(gameObject);
             {
                 CurrentHealth = HealthMax;
             }
@@ -49,10 +58,11 @@ public class Asteroid : MonoBehaviour
         for (int i = 0; i < numChunks; i++)
         {
             CreateAsteroidChunk();
+            Destroy(gameObject);
+
         }
 
         Instantiate(ExplosionRef, transform.position, transform.rotation);
-
         Destroy(gameObject);
 
     }
@@ -73,12 +83,14 @@ public class Asteroid : MonoBehaviour
         rb.AddForce(dir * ExplosiveForce);
     }
 
+
+
+   
+    public int SpawnValue = 3;
     
-    public GameObject[] ChunkRefs;
-    public int ChunksMin = 0;
-    public int ChunksMax = 4;
-    public float ExplodeDist = 0.5f;
-    public float ExplosionForce = 10f;
+
+   
+
 
 
     private void Start()
@@ -88,7 +100,8 @@ public class Asteroid : MonoBehaviour
 
     public float CollisionDamage = 1f;
 
-    public int SpawnValue = 3;
+    
+
 
     public Vector2 ExplosiveForce { get; private set; }
 
@@ -102,6 +115,7 @@ public class Asteroid : MonoBehaviour
         }
     }
 
+  
     
 
     

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1736194287443063560}
   - component: {fileID: 7391493455133784476}
   m_Layer: 0
-  m_Name: FakeAsteroid
+  m_Name: AsteroidDerelictShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
