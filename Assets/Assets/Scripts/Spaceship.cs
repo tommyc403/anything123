@@ -5,75 +5,14 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    public int Score = 0;
-    public int ScoreValue = 10;
-
-    public int GetHighScore()
-    {
-        return PlayerPrefs.GetInt("HighScore", 0);
-    }
-
-    public void SetHighScore(int score)
-    {
-        PlayerPrefs.SetInt("HighScore", 0);
-    }
-
-    public void GameOver()
-    {
-        bool celebrateHighScore = false;
-        if (ScoreValue > GetHighScore())
-        {
-            SetHighScore(Score);
-            celebrateHighScore = true;
-        }
-    }
-
     public float FiringRate = 0.33f;
-
     private float fireTimer = 0f;
 
     public float EnginePower = 10f;
     public float TurnPower = 10f;
     public float MaxHealth = 3f;
     public float CurrentHealth;
-
-    public GameObject BulletRef;
-    public float BulletSpeed = 100f;
-    public void TakeDamage(float damage)
-    {
-        CurrentHealth = CurrentHealth - damage;
-        //CurrentHealth -= damage;
-        if (CurrentHealth <= 0)
-        {
-            Explode();
-        }
-    }
-
-    public void Explode()
-    {
-
-        Spaceship ship = Object.FindFirstObjectByType<Spaceship>();
-        if (ship != null)
-        {
-            ship.ScoreValue += ScoreValue;
-        }
-
-        Debug.Log("Your piloting skills need some work...");
-
-        Destroy(gameObject);
-    }
-
-    public void FireBullet()
-    {
-
-        GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-        Vector2 force = transform.up * BulletSpeed;
-
-        rb.AddForce(force);
-    }
-
+    public int Score;
 
     private Rigidbody2D rb2D;
 
@@ -83,25 +22,19 @@ public class Spaceship : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
-
-
-
-
-    public void Update()
+    private void Update()
     {
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
         ApplyThrust(vert);
         ApplyTorque(horiz);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        bool isFiring = Input.GetButton("Fire1");
+        fireTimer = fireTimer - Time.deltaTime;
+        if (isFiring && fireTimer <= 0f)
         {
-            GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-
-            Vector2 force = transform.up * BulletSpeed;
-
-            rb.AddForce(force);
+            FireBullet();
+            fireTimer = FiringRate;
         }
     }
 
@@ -127,5 +60,40 @@ public class Spaceship : MonoBehaviour
 
 
     }
-    
+
+    public GameObject BulletRef;
+    public float BulletSpeed = 100f;
+
+    public void FireBullet()
+    {
+
+        GameObject bullet = Instantiate(BulletRef, transform.position, transform.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+        Vector2 force = transform.up * BulletSpeed;
+
+        rb.AddForce(force);
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+
+        CurrentHealth = CurrentHealth - damage;
+        //CurrentHealth -= damage;
+        if (CurrentHealth <= 0)
+
+            Explode();
+    }
+
+    public void Explode()
+    {
+        Debug.Log("GAME OVER");
+        Destroy(gameObject);
+    }
+
+    public void AddScore(int score)
+    {
+        Score +- score;    
+    }
 }

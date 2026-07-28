@@ -1,32 +1,34 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ScreenWrap : MonoBehaviour
 {
-
     private SpriteRenderer spriteRenderer;
     private bool hasBeenVisible = false;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    void Start()
+               private void Update ()
     {
         
-    }
-
-    private void Update()
-    {
+     
         if (hasBeenVisible == false && spriteRenderer.isVisible)
         {
             hasBeenVisible = true;
         }
-
         if (hasBeenVisible == false)
         {
             return;
         }
+        }
+    }
+void Start()
+{}
 
+    void Update()
+    {
         Vector2 screenPos =
             Camera.main.WorldToScreenPoint(transform.position);
 
@@ -40,6 +42,7 @@ public class ScreenWrap : MonoBehaviour
         {
             newScreenPos.x = 0;
         }
+
         if (screenPos.y < 0)
         {
             newScreenPos.y = Screen.height;
@@ -48,10 +51,9 @@ public class ScreenWrap : MonoBehaviour
         {
             newScreenPos.y = 0;
         }
-        if (newScreenPos != screenPos)
         {
             Vector2 newWorldPos = Camera.main.ScreenToWorldPoint(newScreenPos);
-            transform.position = newWorldPos;
+        transform.position = newWorldPos;
         }
     }
-}
+

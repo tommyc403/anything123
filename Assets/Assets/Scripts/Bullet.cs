@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-
-    public GameObject ExplosionRef;
     public float Damage = 1f;
+    public GameObject ExplosionRef;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Asteroid asteroid = collision.gameObject.GetComponent<Asteroid>();
@@ -14,6 +13,7 @@ public class Bullet : MonoBehaviour
             Explode();
         }
     }
+
     private void Explode()
     {
         Instantiate(ExplosionRef, transform.position, Quaternion.identity);
@@ -27,6 +27,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    
     }
 }
