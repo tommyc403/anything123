@@ -200,7 +200,7 @@ MonoBehaviour:
   CollisionDamage: 1
   ChunksMin: 2
   ChunksMax: 2
-  ExplodeDist: 0.5
+  ExplodeDist: 1
   ExplosionForce: 300
   HealthMax: 5
   ExplosionRef: {fileID: 0}

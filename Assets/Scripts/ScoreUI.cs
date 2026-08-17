@@ -16,7 +16,7 @@ public class ScoreUI : MonoBehaviour
     {
         if (spaceShip != null)
         {
-            ScoreTextBox.text = "MINERALS COLLECTED: " + spaceShip.MineralsCollected;
+            ScoreTextBox.text = "SCORE: " + spaceShip.MineralsCollected;
         }
     }
 }
