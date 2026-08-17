@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 278330921246743081}
   - component: {fileID: 3918372417529052231}
   - component: {fileID: 7573839081284672412}
-  - component: {fileID: 6065978241065728359}
-  - component: {fileID: -350745108993336400}
-  - component: {fileID: 8220669889265867169}
-  - component: {fileID: -1377046785089968824}
-  m_Layer: 0
-  m_Name: 5AsSmall2
+  - component: {fileID: 717850442357729169}
+  - component: {fileID: -5781438886413155097}
+  - component: {fileID: -4813591245991771206}
+  - component: {fileID: 3256429719086763641}
+  - component: {fileID: -1011137250813996243}
+  m_Layer: 3
+  m_Name: GoldChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.759, y: 0.311, z: 0}
-  m_LocalScale: {x: 2.1137, y: 2.1137, z: 2.1137}
+  m_LocalScale: {x: 0.5750553, y: 0.5750553, z: 0.5750553}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6e70dda9e03ea8344ac13b02161b6409, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c0399b6b4faaf714da674f998e96eeca, type: 3}
+  m_Color: {r: 0.9716981, g: 0.7656024, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,9 +102,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 0.01
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &6065978241065728359
+--- !u!60 &717850442357729169
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +153,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,23 +161,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0038700588, y: 0.12471426}
-      - {x: -0.015506342, y: 0.09124023}
-      - {x: -0.0396752, y: 0.07181172}
-      - {x: -0.09061313, y: 0.07149285}
-      - {x: -0.106221944, y: 0.052291036}
-      - {x: -0.11441463, y: -0.047097497}
-      - {x: -0.055280466, y: -0.10575608}
-      - {x: 0.04229265, y: -0.110951126}
-      - {x: 0.062158413, y: -0.05969504}
-      - {x: 0.08469458, y: -0.038399484}
-      - {x: 0.13856256, y: -0.038839325}
-      - {x: 0.13605587, y: 0.03673203}
-      - {x: 0.12623167, y: 0.07047558}
-      - {x: 0.12272294, y: 0.082746774}
-      - {x: 0.062876545, y: 0.1191558}
+    - - {x: -0.021431446, y: 0.02241189}
+      - {x: -0.040157013, y: 0.015568748}
+      - {x: -0.04511776, y: -0.05774514}
+      - {x: -0.027000224, y: -0.06962752}
+      - {x: 0.023764817, y: -0.066019736}
+      - {x: 0.052039422, y: -0.045568775}
+      - {x: 0.054294344, y: -0.012705868}
+      - {x: 0.04241188, y: 0.022411918}
   m_UseDelaunayMesh: 0
---- !u!114 &-350745108993336400
+--- !u!114 &-5781438886413155097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,17 +183,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreValue: 10
-  SpawnValue: 2
-  ChunkRefs:
-  - {fileID: 3171121992594344724, guid: 7a0036711f2f14343a07864454e06dad, type: 3}
-  CollisionDamage: 1
-  ChunksMin: 12
-  ChunksMax: 16
-  ExplodeDist: 0.5
-  ExplosionForce: 0.05
-  HealthMax: 1
-  ExplosionRef: {fileID: 0}
---- !u!114 &8220669889265867169
+  SpawnValue: 0
+  ChunkRefs: []
+  CollisionDamage: 0
+  ChunksMin: 0
+  ChunksMax: 4
+  ExplodeDist: 0
+  ExplosionForce: 0
+  HealthMax: 0
+  ExplosionRef: {fileID: 8070057822643178818, guid: 35a569d41520ae545b11d352a7650698, type: 3}
+--- !u!114 &-4813591245991771206
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8ba32d758f8bd43a9e8e682b86bc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-1377046785089968824
+--- !u!114 &3256429719086763641
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,19 +213,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 3171121992594344724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c7ca26518d93745be39b5ce0a49f89, type: 3}
+  m_Script: {fileID: 11500000, guid: 42e9123f5493f4c4fb799dd55ddb7807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lifetime: 10
+--- !u!114 &-1011137250813996243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3171121992594344724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627a3680f6a2fb24d8fd87833caaa4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreValue: 10
-  SpawnValue: 1
-  CollisionDamage: 1
-  ChunksMin: 12
-  ChunksMax: 16
-  ExplodeDist: 0.5
-  ExplosionForce: 10
-  GoldChunk: {fileID: 3171121992594344724, guid: 7a0036711f2f14343a07864454e06dad, type: 3}
-  ValuableChunk: {fileID: 3171121992594344724, guid: 8e4d6013b18812d46842e60313b389ae, type: 3}
-  RocketFuelChunk: {fileID: 3171121992594344724, guid: b1fe805f39b42164a98bfacef031f6ee, type: 3}
-  RestorativeOreChunk: {fileID: 3171121992594344724, guid: 17bc2a1fd600e044fa8af65ef358bf9b, type: 3}
-  HealthMax: 1
+  SpawnValue: 0
+  ChunkRefs: []
+  CollisionDamage: 0
+  ChunksMin: 0
+  ChunksMax: 0
+  ExplodeDist: 0
+  ExplosionForce: 0
+  HealthMax: 0
   ExplosionRef: {fileID: 0}

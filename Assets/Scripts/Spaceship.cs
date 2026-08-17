@@ -41,13 +41,11 @@ public class Spaceship : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("A PRESSED");
             ApplyTorque(-1f);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("D PRESSED");
             ApplyTorque(1f);
         }
 
@@ -95,22 +93,23 @@ public class Spaceship : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        // fire off the screenflash effect
-        if (ScreenFlash != null)
+        // Only flash the screen if actual damage is being dealt
+        if (damage > 0f)
         {
-            ScreenFlash.DoScreenFlash();
+            if (ScreenFlash != null)
+            {
+                ScreenFlash.DoScreenFlash();
+            }
         }
 
+        // Reduce health
+        healthCurrent -= damage;
 
-        // reduce health by some amount
-        // if none left, then explode
-
-        healthCurrent = healthCurrent - damage;
+        // If no health remains, explode
         if (healthCurrent <= 0f)
         {
             Explode();
         }
-
     }
 
     public void Explode()

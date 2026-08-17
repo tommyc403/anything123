@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6065978241065728359}
   - component: {fileID: 6146272642710249118}
   - component: {fileID: -3706137989144184631}
+  - component: {fileID: -1234125402335591428}
   m_Layer: 0
   m_Name: 4AsSmall1
   m_TagString: Untagged
@@ -179,7 +180,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3171121992594344724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70710a2da87e9df4cb5cb455e24c9cf0, type: 3}
   m_Name: 
@@ -189,8 +190,8 @@ MonoBehaviour:
   ChunkRefs:
   - {fileID: 3171121992594344724, guid: 7a0036711f2f14343a07864454e06dad, type: 3}
   CollisionDamage: 1
-  ChunksMin: 8
-  ChunksMax: 10
+  ChunksMin: 12
+  ChunksMax: 16
   ExplodeDist: 0.5
   ExplosionForce: 0.05
   HealthMax: 1
@@ -207,3 +208,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8ba32d758f8bd43a9e8e682b86bc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-1234125402335591428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3171121992594344724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c7ca26518d93745be39b5ce0a49f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreValue: 10
+  SpawnValue: 1
+  CollisionDamage: 1
+  ChunksMin: 12
+  ChunksMax: 16
+  ExplodeDist: 0.5
+  ExplosionForce: 10
+  GoldChunk: {fileID: 3171121992594344724, guid: 7a0036711f2f14343a07864454e06dad, type: 3}
+  ValuableChunk: {fileID: 3171121992594344724, guid: 8e4d6013b18812d46842e60313b389ae, type: 3}
+  RocketFuelChunk: {fileID: 3171121992594344724, guid: b1fe805f39b42164a98bfacef031f6ee, type: 3}
+  RestorativeOreChunk: {fileID: 3171121992594344724, guid: 17bc2a1fd600e044fa8af65ef358bf9b, type: 3}
+  HealthMax: 1
+  ExplosionRef: {fileID: 0}
