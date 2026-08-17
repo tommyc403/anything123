@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3918372417529052231}
   - component: {fileID: 7573839081284672412}
   - component: {fileID: 717850442357729169}
-  - component: {fileID: -6802311755637200777}
-  - component: {fileID: 8751421393352349946}
+  - component: {fileID: 1280079384690118325}
+  - component: {fileID: -1915397850635166882}
   m_Layer: 0
-  m_Name: AsteroidLarge2
+  m_Name: Unused2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.759, y: 0.311, z: 0}
-  m_LocalScale: {x: 2.1137, y: 2.1137, z: 2.1137}
+  m_LocalScale: {x: 3.30942, y: 3.30942, z: 3.30942}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 795b7867f7e138a419473cdbd03f3be6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4ecb83947ef3f304cac1e2b2b693e364, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -151,7 +151,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.16, y: 0.16}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,35 +159,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.06462984, y: 0.28646457}
-      - {x: -0.009028427, y: 0.25216118}
-      - {x: -0.04658107, y: 0.25292593}
-      - {x: -0.09156096, y: 0.26574188}
-      - {x: -0.13337535, y: 0.21111518}
-      - {x: -0.182437, y: 0.20052885}
-      - {x: -0.18381876, y: 0.15196335}
-      - {x: -0.12505397, y: 0.10462027}
-      - {x: -0.11939008, y: -0.027575888}
-      - {x: -0.21302816, y: -0.09973232}
-      - {x: -0.25399715, y: -0.10172887}
-      - {x: -0.26034155, y: -0.18885642}
-      - {x: -0.16774692, y: -0.2276016}
-      - {x: -0.11420232, y: -0.24758682}
-      - {x: -0.07088012, y: -0.21729809}
-      - {x: 0.011156429, y: -0.21828102}
-      - {x: 0.057279654, y: -0.28122061}
-      - {x: 0.099493295, y: -0.28116414}
-      - {x: 0.18013129, y: -0.2424703}
-      - {x: 0.17617854, y: -0.19714081}
-      - {x: 0.122426644, y: -0.09739914}
-      - {x: 0.1195537, y: -0.028788503}
-      - {x: 0.13999349, y: 0.03341712}
-      - {x: 0.13086924, y: 0.104573056}
-      - {x: 0.21526901, y: 0.17066962}
-      - {x: 0.21800247, y: 0.25302225}
-      - {x: 0.16906683, y: 0.2857029}
+    - - {x: -0.021104956, y: 0.061525702}
+      - {x: -0.039473012, y: 0.04965787}
+      - {x: -0.041183576, y: 0.007184451}
+      - {x: -0.03357842, y: -0.008525249}
+      - {x: -0.029592656, y: -0.029828787}
+      - {x: -0.021289833, y: -0.038525254}
+      - {x: 0.0008094639, y: -0.05050945}
+      - {x: 0.04605189, y: -0.0515257}
+      - {x: 0.061525688, y: -0.0358946}
+      - {x: 0.054727573, y: 0.012335538}
+      - {x: 0.041756675, y: 0.024500547}
+      - {x: 0.04168292, y: 0.03828942}
+      - {x: 0.021026338, y: 0.059815124}
   m_UseDelaunayMesh: 0
---- !u!114 &-6802311755637200777
+--- !u!114 &1280079384690118325
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,21 +185,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70710a2da87e9df4cb5cb455e24c9cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnValue: 3
-  ChunkRefs:
-  - {fileID: 3171121992594344724, guid: 2e224300bc948af43a1132f60642719e, type: 3}
-  - {fileID: 3171121992594344724, guid: aa5807d99c59c8e44ac51a33e970e4df, type: 3}
-  - {fileID: 3171121992594344724, guid: d017859efc2e68645bda17a6c52b2505, type: 3}
-  - {fileID: 3171121992594344724, guid: 437ff5d49b6dbaf4cbcbca6daa34a501, type: 3}
-  - {fileID: 3171121992594344724, guid: 94a4931c0895b1441a2b20596b05a06d, type: 3}
-  CollisionDamage: 3
-  ChunksMin: 3
+  ScoreValue: 10
+  SpawnValue: 1
+  ChunkRefs: []
+  CollisionDamage: 1
+  ChunksMin: 0
   ChunksMax: 4
   ExplodeDist: 0.5
-  ExplosionForce: 300
-  HealthMax: 10
+  ExplosionForce: 10
+  HealthMax: 1
   ExplosionRef: {fileID: 0}
---- !u!114 &8751421393352349946
+--- !u!114 &-1915397850635166882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

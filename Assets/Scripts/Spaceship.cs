@@ -7,10 +7,11 @@ public class Spaceship : MonoBehaviour
     public GameOverUI GameOverUI;
     public ScreenFlash ScreenFlash;
     public float EnginePower = 10f;
+    public float EngineReversePower = 10f;
     public float TurnPower = 10f;
     public float HealthMax = 3f;
 
-    public float FiringRate = 0.33f;
+    public float FiringRate = 0.66f;
     private float firingTimer = 0f;
 
     public GameObject BulletRef;
@@ -38,15 +39,30 @@ public class Spaceship : MonoBehaviour
     {
         UpdateFiring();
 
-        float horiz = Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.A))
+        {
+            Debug.Log("A PRESSED");
+            ApplyTorque(-1f);
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            Debug.Log("D PRESSED");
+            ApplyTorque(1f);
+        }
+
         float vert = Input.GetAxis("Vertical");
-        
+
         if (vert > 0f)
         {
-            ApplyThrust(vert);            
-        }     
-        ApplyTorque(horiz);
+            ApplyThrust(vert);
+        }
+        else if (vert < 0f)
+        {
+            ApplyReverseThrust(-vert);
+        }
     }
+
 
     private void UpdateFiring()
     {
@@ -59,13 +75,17 @@ public class Spaceship : MonoBehaviour
             firingTimer = FiringRate;
         }
     }
-
-
-   public void ApplyThrust(float amount)
+    public void ApplyThrust(float amount)
    {
         Vector2 thrust = transform.up * EnginePower * Time.deltaTime * amount;
         rigidBody.AddForce(thrust);
-   }
+    }
+
+    public void ApplyReverseThrust(float amount)
+    {
+        Vector2 thrust = -transform.up * EngineReversePower * Time.deltaTime * amount;
+        rigidBody.AddForce(thrust);
+    }
 
     public void ApplyTorque(float amount)
     {
