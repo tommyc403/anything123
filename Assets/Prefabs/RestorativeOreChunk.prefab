@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.759, y: 0.311, z: 0}
-  m_LocalScale: {x: 0.5750553, y: 0.5750553, z: 0.5750553}
+  m_LocalScale: {x: 1.510293, y: 1.510293, z: 1.510293}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -229,13 +229,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627a3680f6a2fb24d8fd87833caaa4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreValue: 10
-  SpawnValue: 0
-  ChunkRefs: []
-  CollisionDamage: 0
-  ChunksMin: 0
-  ChunksMax: 0
-  ExplodeDist: 0
-  ExplosionForce: 0
-  HealthMax: 0
-  ExplosionRef: {fileID: 0}
+  ScoreValue: 1

@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-
 
 public class ScoreUI : MonoBehaviour
 {
-
     public TMP_Text ScoreTextBox;
+
     private Spaceship spaceShip;
+
     private void Start()
     {
         spaceShip = FindObjectOfType<Spaceship>();
@@ -19,10 +16,7 @@ public class ScoreUI : MonoBehaviour
     {
         if (spaceShip != null)
         {
-            ScoreTextBox.text = spaceShip.Score.ToString();
+            ScoreTextBox.text = "MINERALS COLLECTED: " + spaceShip.MineralsCollected;
         }
     }
-
-    
-
 }

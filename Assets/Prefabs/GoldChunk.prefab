@@ -229,13 +229,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627a3680f6a2fb24d8fd87833caaa4d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreValue: 10
-  SpawnValue: 0
-  ChunkRefs: []
-  CollisionDamage: 0
-  ChunksMin: 0
-  ChunksMax: 0
-  ExplodeDist: 0
-  ExplosionForce: 0
-  HealthMax: 0
-  ExplosionRef: {fileID: 0}
+  ScoreValue: 1

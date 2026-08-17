@@ -20,11 +20,18 @@ public class Spaceship : MonoBehaviour
     public GameObject ExplosionRef;
     public int Score = 0;
 
+    public int MineralsCollected = 0;
+
 
     private float healthCurrent;
 
 
     private Rigidbody2D rigidBody;
+
+    public void CollectMinerals(int amount)
+    {
+        MineralsCollected += amount;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -93,19 +100,20 @@ public class Spaceship : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        // Only flash the screen if actual damage is being dealt
-        if (damage > 0f)
+        Debug.Log("SPACESHIP TAKE DAMAGE: " + damage);
+
+        if (damage <= 0f)
         {
-            if (ScreenFlash != null)
-            {
-                ScreenFlash.DoScreenFlash();
-            }
+            return;
         }
 
-        // Reduce health
+        if (ScreenFlash != null)
+        {
+            ScreenFlash.DoScreenFlash();
+        }
+
         healthCurrent -= damage;
 
-        // If no health remains, explode
         if (healthCurrent <= 0f)
         {
             Explode();

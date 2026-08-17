@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3918372417529052231}
   - component: {fileID: 7573839081284672412}
   - component: {fileID: 6065978241065728359}
-  - component: {fileID: -350745108993336400}
   - component: {fileID: 8220669889265867169}
   - component: {fileID: -1377046785089968824}
   m_Layer: 0
@@ -176,29 +175,6 @@ PolygonCollider2D:
       - {x: 0.12272294, y: 0.082746774}
       - {x: 0.062876545, y: 0.1191558}
   m_UseDelaunayMesh: 0
---- !u!114 &-350745108993336400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3171121992594344724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70710a2da87e9df4cb5cb455e24c9cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreValue: 10
-  SpawnValue: 2
-  ChunkRefs:
-  - {fileID: 3171121992594344724, guid: 7a0036711f2f14343a07864454e06dad, type: 3}
-  CollisionDamage: 1
-  ChunksMin: 12
-  ChunksMax: 16
-  ExplodeDist: 0.5
-  ExplosionForce: 0.05
-  HealthMax: 1
-  ExplosionRef: {fileID: 0}
 --- !u!114 &8220669889265867169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,14 +201,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreValue: 10
   SpawnValue: 1
+  ChunkRefs: []
   CollisionDamage: 1
-  ChunksMin: 12
-  ChunksMax: 16
+  ChunksMin: 8
+  ChunksMax: 12
   ExplodeDist: 0.5
-  ExplosionForce: 10
+  ExplosionForce: 0.2
+  HealthMax: 1
+  ExplosionRef: {fileID: 0}
   GoldChunk: {fileID: 3171121992594344724, guid: 7a0036711f2f14343a07864454e06dad, type: 3}
   ValuableChunk: {fileID: 3171121992594344724, guid: 8e4d6013b18812d46842e60313b389ae, type: 3}
   RocketFuelChunk: {fileID: 3171121992594344724, guid: b1fe805f39b42164a98bfacef031f6ee, type: 3}
   RestorativeOreChunk: {fileID: 3171121992594344724, guid: 17bc2a1fd600e044fa8af65ef358bf9b, type: 3}
-  HealthMax: 1
-  ExplosionRef: {fileID: 0}
+  GoldChance: 90
+  ValuableChance: 9
+  RocketFuelChance: 0.8
+  RestorativeOreChance: 0.2
