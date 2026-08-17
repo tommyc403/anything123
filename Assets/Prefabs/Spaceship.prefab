@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1725214d816da98458cd29e8e4bdde7c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.64865446, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e26a22e32e0a449a8ff5549b427e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOverUI: {fileID: 0}
+  ScreenFlash: {fileID: 0}
   EnginePower: 100
   TurnPower: -50
   HealthMax: 3
@@ -134,6 +136,7 @@ MonoBehaviour:
   BulletRef: {fileID: 0}
   BulletSpeed: 100
   ExplosionRef: {fileID: 0}
+  Score: 0
 --- !u!60 &208793571166406319
 PolygonCollider2D:
   m_ObjectHideFlags: 0
