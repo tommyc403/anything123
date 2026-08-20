@@ -7,22 +7,28 @@ public class Asteroid : MonoBehaviour
 
     // Old score value (Keep in case)
     public int ScoreValue = 10;
+
     // Spawn value to be incremented
     public int SpawnValue = 1;
     public GameObject[] ChunkRefs;
     public float CollisionDamage = 1f;
+
     //Chunk amount when destroyed
     public int ChunksMin = 0;
     public int ChunksMax = 4;
+
     // Chunk distance from source and force (Public= Adjustable in Inspector)
     public float ExplodeDist = 0.5f;
     public float ExplosionForce = 10f;
+
     // Asteroid Health (Adjustable per asteroid in Inspector)
     public float HealthMax = 5f;
     private float healthCurrent;
+
     // References Explosion for use 
     public GameObject ExplosionRef;
 
+    // Start is called before the first frame update
     private void Start()
     {
         // Sets asteroid health to max value when spawned by default
@@ -73,7 +79,7 @@ public class Asteroid : MonoBehaviour
 
         Destroy(gameObject);
     }
-
+    // PROTECTED = Follows through generations but children can be edited (Chunks and Small Asteroids)
     protected virtual void CreateAsteroidChunk()
     {
         if (ChunkRefs == null || ChunkRefs.Length == 0)
@@ -87,6 +93,7 @@ public class Asteroid : MonoBehaviour
         SpawnChunk(chunkRef);
     }
 
+    //Spawning chunk at random position around destroyed asteroid *ANDREW'S WORKING LEAVE ALONE*
     protected void SpawnChunk(GameObject chunkRef)
     {
         Vector2 myPos = transform.position;

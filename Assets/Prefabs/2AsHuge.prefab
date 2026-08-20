@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.614, y: 0.494, z: 0}
-  m_LocalScale: {x: 1.8089646, y: 1.8089646, z: 1.8089646}
+  m_LocalScale: {x: 2.1287897, y: 2.1287897, z: 2.1287897}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -207,7 +207,7 @@ MonoBehaviour:
   - {fileID: 3171121992594344724, guid: d017859efc2e68645bda17a6c52b2505, type: 3}
   CollisionDamage: 1
   ChunksMin: 3
-  ChunksMax: 5
+  ChunksMax: 4
   ExplodeDist: 0.5
   ExplosionForce: 300
   HealthMax: 4

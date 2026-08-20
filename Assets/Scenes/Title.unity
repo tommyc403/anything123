@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 535170815}
   - component: {fileID: 535170814}
   m_Layer: 5
-  m_Name: Title (1)
+  m_Name: Subtitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,14 +242,14 @@ RectTransform:
   m_GameObject: {fileID: 535170812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.381001, y: 1.3861798, z: 1.381001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1799579377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 38}
+  m_AnchoredPosition: {x: -27, y: 15}
   m_SizeDelta: {x: 806.9576, y: 158.1143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535170814
@@ -272,8 +272,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The asteroid belt of the MidAs-2 system is rich with valuable minerals!
-    But will you be able to stay alive long enough to reap the rewards?
+  m_text: "The Asteroid Belt of the MidAs-2 System is rich with valuable minerals!\nBreak
+    through their hard outer layers and scoop up that GOLD! \nWill you be able to
+    stay alive to reap the rewards?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -300,8 +301,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.8
-  m_fontSizeBase: 32.8
+  m_fontSize: 30.46
+  m_fontSizeBase: 30.46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -312,9 +313,9 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 0.97
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -0.4
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -498,7 +499,7 @@ GameObject:
   - component: {fileID: 701708441}
   - component: {fileID: 701708440}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Asteroids Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,14 +514,14 @@ RectTransform:
   m_GameObject: {fileID: 701708438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3977, y: 1.3977, z: 1.3977}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1799579377}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -84, y: 223}
+  m_AnchoredPosition: {x: -84, y: 221}
   m_SizeDelta: {x: 806.9576, y: 158.1143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701708440
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ASTEROIDS: GOLD RUSH'
+  m_text: 'ASTEROIDS: Au EDITION'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -1257,7 +1258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5176471, g: 0.34151316, b: 0, a: 0.392}
+  m_Color: {r: 0.13697045, g: 0.14114465, b: 0.16981131, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

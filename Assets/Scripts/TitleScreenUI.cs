@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenUI : MonoBehaviour
 {
+    // MENU
     public void ClickPlay(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+
+    //[]= Array-> astreoid variants
     public GameObject[] AsteroidRefs;
 
     public float CheckInterval = 3f;
@@ -22,10 +24,10 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        // -----------------------------------------
-        // Asteroid spawning
-        // -----------------------------------------
+        //=========================================================================
+        //SPAWNING
 
+        //Checker for asteroid "entity cap" spawn limit
         checkTimer += Time.deltaTime;
 
         if (checkTimer > CheckInterval)
@@ -39,10 +41,7 @@ public class SpawnManager : MonoBehaviour
         }
 
 
-        // -----------------------------------------
-        // Increase spawn threshold
-        // -----------------------------------------
-
+        // TIMER FOR ASTEROID AMOUNT INCREMENTAL INCREASE (Difficulty Scaler)
         thresholdTimer += Time.deltaTime;
 
         if (thresholdTimer >= ThresholdIncreaseInterval)
@@ -51,8 +50,8 @@ public class SpawnManager : MonoBehaviour
 
             SpawnThreshold += ThresholdIncreaseAmount;
 
-            Debug.Log("Spawn Threshold increased to: " + SpawnThreshold);
         }
+        
     }
 
 
@@ -102,8 +101,10 @@ public class SpawnManager : MonoBehaviour
 
         return Camera.main.ViewportToWorldPoint(finalPos);
     }
+    //SPAWNING
+    //=========================================================================
 
-
+    //Calculate current total asteroid value in play
     public int TotalAsteroidValue()
     {
         Asteroid[] asteroids =

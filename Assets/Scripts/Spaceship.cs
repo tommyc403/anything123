@@ -5,31 +5,21 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    // =========================================================
-    // REFERENCES
-    // =========================================================
-
     public GameOverUI GameOverUI;
     public ScreenFlash ScreenFlash;
-
     public GameObject BulletRef;
     public GameObject ExplosionRef;
-
     private Rigidbody2D rigidBody;
 
 
-    // =========================================================
-    // MOVEMENT
-    // =========================================================
+// Basic Movement
 
     public float EnginePower = 10f;
     public float EngineReversePower = 10f;
     public float TurnPower = 10f;
 
 
-    // =========================================================
-    // BOOST
-    // =========================================================
+//Booster
 
     public float BoostMultiplier = 3f;
 
@@ -236,9 +226,7 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================================================
-    // FUEL DRAIN
-    // =========================================================
+// Fuel draining when accelerating
 
     private void UpdateFuelDrain()
     {
@@ -267,13 +255,11 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================================================
-    // FUEL RECHARGE
-    // =========================================================
+  // Fuel regeneration
 
     private void UpdateFuelRecharge()
     {
-        // Don't recharge if already at maximum.
+       //Cap at maximum
         if (fuelCurrent >= FuelMax)
         {
             fuelRechargeTimer = FuelRechargeInterval;
@@ -291,9 +277,7 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================================================
-    // FIRING
-    // =========================================================
+// OH SHOOT
 
     private void UpdateFiring()
     {
@@ -304,7 +288,7 @@ public class Spaceship : MonoBehaviour
         if (isFiring && firingTimer <= 0f)
         {
             FireBullet();
-
+            //Link to new held firing rate
             firingTimer = FiringRate;
         }
     }
@@ -326,13 +310,10 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================================================
-    // HEALTH
-    // =========================================================
+// Health and Damage
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("SPACESHIP TAKE DAMAGE: " + damage);
 
         if (damage <= 0f)
         {
@@ -342,7 +323,7 @@ public class Spaceship : MonoBehaviour
         if (ScreenFlash != null)
         {
             ScreenFlash.DoScreenFlash();
-        }
+    }
 
         healthCurrent -= damage;
 
@@ -369,19 +350,14 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================================================
-    // MINERALS
-    // =========================================================
-
+// MINERAL SCOREBOARD
     public void CollectMinerals(int amount)
     {
         MineralsCollected += amount;
     }
 
 
-    // =========================================================
-    // EXPLOSION / GAME OVER
-    // =========================================================
+// ANDREW'S GAME OVER SCREEN **LEAVE**
 
     public void Explode()
     {
@@ -399,7 +375,7 @@ public class Spaceship : MonoBehaviour
     public void GameOver()
     {
         bool celebrateHiScore = false;
-
+        //Change to Minerals instead of Score
         if (MineralsCollected > GetHighMineralsCollected())
         {
             SetHighMineralsCollected(MineralsCollected);
@@ -411,21 +387,20 @@ public class Spaceship : MonoBehaviour
     }
 
 
-
-    // =========================================================
-    // HIGH MINERALS
-    // =========================================================
+    //==========================================================
+    // Minerals HighScore Record STORED
 
     public int GetHighMineralsCollected()
     {
         return PlayerPrefs.GetInt("HighMineralsCollected", 0);
     }
 
-
+    //
     public void SetHighMineralsCollected(int minerals)
     {
         PlayerPrefs.SetInt("HighMineralsCollected", minerals);
         PlayerPrefs.Save();
     }
+    //===========================================================
 }
 

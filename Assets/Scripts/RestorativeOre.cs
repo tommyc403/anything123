@@ -9,10 +9,9 @@ public class RestorativeOre : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Spaceship spaceship = collision.gameObject.GetComponent<Spaceship>();
-
+        //Simple heals [NEW MAX 3]
         if (spaceship != null)
         {
-            Debug.Log("RESTORATIVE ORE COLLECTED - HEALING " + HealAmount);
 
             spaceship.RestoreHealth(HealAmount);
 
