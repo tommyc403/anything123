@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+
+    // Old score value (Keep in case)
     public int ScoreValue = 10;
+    // Spawn value to be incremented
     public int SpawnValue = 1;
     public GameObject[] ChunkRefs;
     public float CollisionDamage = 1f;
-
+    //Chunk amount when destroyed
     public int ChunksMin = 0;
     public int ChunksMax = 4;
+    // Chunk distance from source and force (Public= Adjustable in Inspector)
     public float ExplodeDist = 0.5f;
     public float ExplosionForce = 10f;
-
+    // Asteroid Health (Adjustable per asteroid in Inspector)
     public float HealthMax = 5f;
     private float healthCurrent;
-
+    // References Explosion for use 
     public GameObject ExplosionRef;
 
     private void Start()
     {
+        // Sets asteroid health to max value when spawned by default
         healthCurrent = HealthMax;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        //References Spaceship collider2D
         Spaceship ship = collision.gameObject.GetComponent<Spaceship>();
 
         if (ship != null)
@@ -36,6 +42,7 @@ public class Asteroid : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
+        //If health = 0 then do explode, easy
         healthCurrent -= damage;
 
         if (healthCurrent <= 0f)
@@ -43,23 +50,24 @@ public class Asteroid : MonoBehaviour
             Explode();
         }
     }
-
+    
     public virtual void Explode()
     {
+        // Describes explode
         Spaceship spaceship = GetComponent<Spaceship>();
 
         if (spaceship != null)
         {
             spaceship.Score += ScoreValue;
         }
-
+        // Designated chunks to spawn after exploding, range adjustable in inspector
         int numChunks = Random.Range(ChunksMin, ChunksMax + 1);
 
         for (int i = 0; i < numChunks; i++)
         {
             CreateAsteroidChunk();
         }
-
+        //Still don't understand Quaternion, but this works
         if (ExplosionRef)
         {
             Instantiate(ExplosionRef, transform.position, Quaternion.identity);
@@ -84,18 +92,15 @@ public class Asteroid : MonoBehaviour
     protected void SpawnChunk(GameObject chunkRef)
     {
         Vector2 myPos = transform.position;
-
         Vector2 spawnPos = transform.position;
 
         spawnPos.x += Random.Range(-ExplodeDist, ExplodeDist);
         spawnPos.y += Random.Range(-ExplodeDist, ExplodeDist);
 
         GameObject chunk = Instantiate(chunkRef, spawnPos, transform.rotation);
-
         Vector2 dir = (spawnPos - myPos).normalized;
 
         Rigidbody2D rb = chunk.GetComponent<Rigidbody2D>();
-
         if (rb != null)
         {
             rb.AddForce(dir * ExplosionForce);
