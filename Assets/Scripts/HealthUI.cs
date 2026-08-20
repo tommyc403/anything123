@@ -16,10 +16,8 @@ public class HealthUI : MonoBehaviour
     {
         if (spaceShip != null)
         {
-            HealthTextBox.text = "HEALTH: " +
-                                 spaceShip.HealthCurrent.ToString("0") +
-                                 " / " +
-                                 spaceShip.HealthMax.ToString("0");
+            HealthTextBox.text = "HULL INTEGRITY: " +
+                                 spaceShip.HealthCurrent.ToString("0");
         }
     }
 }
