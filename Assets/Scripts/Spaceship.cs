@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Spaceship : MonoBehaviour
 {
-    // =========================
-    // References
-    // =========================
+    // =========================================================
+    // REFERENCES
+    // =========================================================
 
     public GameOverUI GameOverUI;
     public ScreenFlash ScreenFlash;
@@ -12,22 +12,49 @@ public class Spaceship : MonoBehaviour
     public GameObject BulletRef;
     public GameObject ExplosionRef;
 
+    private Rigidbody2D rigidBody;
 
-    // =========================
-    // Movement
-    // =========================
+
+    // =========================================================
+    // MOVEMENT
+    // =========================================================
 
     public float EnginePower = 10f;
     public float EngineReversePower = 10f;
     public float TurnPower = 10f;
 
-    // Boost
+
+    // =========================================================
+    // BOOST
+    // =========================================================
+
     public float BoostMultiplier = 3f;
 
+    public float FuelMax = 100f;
+    private float fuelCurrent;
 
-    // =========================
-    // Firing
-    // =========================
+    public float FuelCurrent => fuelCurrent;
+
+    // Amount of fuel consumed while boosting
+    public float FuelDrainAmount = 20f;
+
+    // How often fuel is consumed while boosting
+    public float FuelDrainInterval = 1f;
+
+    private float fuelDrainTimer = 0f;
+
+    // Amount of fuel regenerated
+    public float FuelRechargeAmount = 20f;
+
+    // How often fuel regenerates
+    public float FuelRechargeInterval = 20f;
+
+    private float fuelRechargeTimer = 0f;
+
+
+    // =========================================================
+    // FIRING
+    // =========================================================
 
     public float FiringRate = 0.66f;
     private float firingTimer = 0f;
@@ -35,17 +62,9 @@ public class Spaceship : MonoBehaviour
     public float BulletSpeed = 100f;
 
 
-    // =========================
-    // Score
-    // =========================
-
-    public int Score = 0;
-    public int MineralsCollected = 0;
-
-
-    // =========================
-    // Health
-    // =========================
+    // =========================================================
+    // HEALTH
+    // =========================================================
 
     public float HealthMax = 3f;
     private float healthCurrent;
@@ -53,38 +72,17 @@ public class Spaceship : MonoBehaviour
     public float HealthCurrent => healthCurrent;
 
 
-    // =========================
-    // Fuel / Boost
-    // =========================
+    // =========================================================
+    // SCORE / MINERALS
+    // =========================================================
 
-    public float FuelMax = 100f;
-    private float fuelCurrent;
-
-    public float FuelCurrent => fuelCurrent;
-
-    // Fuel consumed while boosting
-    public float FuelDrainAmount = 20f;
-    public float FuelDrainInterval = 1f;
-
-    private float fuelDrainTimer = 0f;
-
-    // Fuel regenerated over time
-    public float FuelRechargeAmount = 20f;
-    public float FuelRechargeInterval = 20f;
-
-    private float fuelRechargeTimer = 0f;
+    public int Score = 0;
+    public int MineralsCollected = 0;
 
 
-    // =========================
-    // Components
-    // =========================
-
-    private Rigidbody2D rigidBody;
-
-
-    // =========================
-    // Initialization
-    // =========================
+    // =========================================================
+    // START
+    // =========================================================
 
     private void Start()
     {
@@ -93,22 +91,34 @@ public class Spaceship : MonoBehaviour
         healthCurrent = HealthMax;
         fuelCurrent = FuelMax;
 
-        // Start the recharge timer at the full interval.
+        // Begin the fuel recharge countdown.
         fuelRechargeTimer = FuelRechargeInterval;
     }
 
 
-    // =========================
-    // Update
-    // =========================
+    // =========================================================
+    // UPDATE
+    // =========================================================
 
     private void Update()
     {
+        UpdateMovement();
         UpdateFiring();
         UpdateFuelDrain();
         UpdateFuelRecharge();
+    }
 
-        // Turning
+
+    // =========================================================
+    // MOVEMENT
+    // =========================================================
+
+    private void UpdateMovement()
+    {
+        // -----------------------------------------
+        // Rotation
+        // -----------------------------------------
+
         if (Input.GetKey(KeyCode.A))
         {
             ApplyTorque(-1f);
@@ -119,14 +129,20 @@ public class Spaceship : MonoBehaviour
             ApplyTorque(1f);
         }
 
-        // Forward / reverse thrust
+
+        // -----------------------------------------
+        // Forward / Reverse Thrust
+        // -----------------------------------------
+
         float vert = Input.GetAxis("Vertical");
 
         if (vert > 0f)
         {
             float thrustMultiplier = 1f;
 
-            // Boost while Space is held and fuel remains
+            // Activate boost while:
+            // 1. Space is held
+            // 2. Fuel remains
             if (Input.GetKey(KeyCode.Space) && fuelCurrent > 0f)
             {
                 thrustMultiplier = BoostMultiplier;
@@ -141,9 +157,44 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================
-    // Fuel
-    // =========================
+    public void ApplyThrust(float amount)
+    {
+        Vector2 thrust =
+            transform.up *
+            EnginePower *
+            Time.deltaTime *
+            amount;
+
+        rigidBody.AddForce(thrust);
+    }
+
+
+    public void ApplyReverseThrust(float amount)
+    {
+        Vector2 thrust =
+            -transform.up *
+            EngineReversePower *
+            Time.deltaTime *
+            amount;
+
+        rigidBody.AddForce(thrust);
+    }
+
+
+    public void ApplyTorque(float amount)
+    {
+        float torque =
+            amount *
+            TurnPower *
+            Time.deltaTime;
+
+        rigidBody.AddTorque(torque);
+    }
+
+
+    // =========================================================
+    // FUEL
+    // =========================================================
 
     public void AddFuel(float amount)
     {
@@ -183,9 +234,44 @@ public class Spaceship : MonoBehaviour
     }
 
 
+    // =========================================================
+    // FUEL DRAIN
+    // =========================================================
+
+    private void UpdateFuelDrain()
+    {
+        float vert = Input.GetAxis("Vertical");
+
+        bool isBoosting =
+            Input.GetKey(KeyCode.Space) &&
+            vert > 0f &&
+            fuelCurrent > 0f;
+
+        if (isBoosting)
+        {
+            fuelDrainTimer -= Time.deltaTime;
+
+            if (fuelDrainTimer <= 0f)
+            {
+                UseFuel(FuelDrainAmount);
+
+                fuelDrainTimer = FuelDrainInterval;
+            }
+        }
+        else
+        {
+            fuelDrainTimer = 0f;
+        }
+    }
+
+
+    // =========================================================
+    // FUEL RECHARGE
+    // =========================================================
+
     private void UpdateFuelRecharge()
     {
-        // Don't run the recharge timer while already at maximum fuel.
+        // Don't recharge if already at maximum.
         if (fuelCurrent >= FuelMax)
         {
             fuelRechargeTimer = FuelRechargeInterval;
@@ -203,37 +289,9 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================
-    // Movement
-    // =========================
-
-    public void ApplyThrust(float amount)
-    {
-        Vector2 thrust = transform.up * EnginePower * Time.deltaTime * amount;
-
-        rigidBody.AddForce(thrust);
-    }
-
-
-    public void ApplyReverseThrust(float amount)
-    {
-        Vector2 thrust = -transform.up * EngineReversePower * Time.deltaTime * amount;
-
-        rigidBody.AddForce(thrust);
-    }
-
-
-    public void ApplyTorque(float amount)
-    {
-        float torque = amount * TurnPower * Time.deltaTime;
-
-        rigidBody.AddTorque(torque);
-    }
-
-
-    // =========================
-    // Firing
-    // =========================
+    // =========================================================
+    // FIRING
+    // =========================================================
 
     private void UpdateFiring()
     {
@@ -266,9 +324,9 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================
-    // Health
-    // =========================
+    // =========================================================
+    // HEALTH
+    // =========================================================
 
     public void TakeDamage(float damage)
     {
@@ -309,9 +367,9 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================
-    // Minerals
-    // =========================
+    // =========================================================
+    // MINERALS
+    // =========================================================
 
     public void CollectMinerals(int amount)
     {
@@ -319,9 +377,9 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================
-    // Explosion / Game Over
-    // =========================
+    // =========================================================
+    // EXPLOSION / GAME OVER
+    // =========================================================
 
     public void Explode()
     {
@@ -352,9 +410,9 @@ public class Spaceship : MonoBehaviour
     }
 
 
-    // =========================
-    // High Score
-    // =========================
+    // =========================================================
+    // HIGH SCORE
+    // =========================================================
 
     public int GetHighScore()
     {

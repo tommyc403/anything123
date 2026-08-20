@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3918372417529052231}
   - component: {fileID: 7573839081284672412}
   - component: {fileID: 717850442357729169}
-  - component: {fileID: -5781438886413155097}
   - component: {fileID: -4813591245991771206}
   - component: {fileID: 3256429719086763641}
   - component: {fileID: -6463896152412349234}
+  - component: {fileID: 711178246849951340}
   m_Layer: 3
   m_Name: RocketFuelChunk
   m_TagString: Untagged
@@ -170,28 +170,6 @@ PolygonCollider2D:
       - {x: 0.054294344, y: -0.012705868}
       - {x: 0.04241188, y: 0.022411918}
   m_UseDelaunayMesh: 0
---- !u!114 &-5781438886413155097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3171121992594344724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70710a2da87e9df4cb5cb455e24c9cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ScoreValue: 10
-  SpawnValue: 0
-  ChunkRefs: []
-  CollisionDamage: 0
-  ChunksMin: 0
-  ChunksMax: 4
-  ExplodeDist: 0
-  ExplosionForce: 0
-  HealthMax: 1
-  ExplosionRef: {fileID: 8070057822643178818, guid: 35a569d41520ae545b11d352a7650698, type: 3}
 --- !u!114 &-4813591245991771206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,3 +208,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreValue: 1
+--- !u!114 &711178246849951340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3171121992594344724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d879a9ffc47c848be288214f591493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
