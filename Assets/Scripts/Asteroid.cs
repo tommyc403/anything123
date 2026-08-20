@@ -50,27 +50,25 @@ public class Asteroid : MonoBehaviour
             Explode();
         }
     }
-    
+
     public virtual void Explode()
     {
-        // Describes explode
-        Spaceship spaceship = GetComponent<Spaceship>();
-
-        if (spaceship != null)
-        {
-            spaceship.Score += ScoreValue;
-        }
-        // Designated chunks to spawn after exploding, range adjustable in inspector
+        // Designated chunks to spawn after exploding
         int numChunks = Random.Range(ChunksMin, ChunksMax + 1);
 
         for (int i = 0; i < numChunks; i++)
         {
             CreateAsteroidChunk();
         }
-        //Still don't understand Quaternion, but this works
+
+        // Explosion effect
         if (ExplosionRef)
         {
-            Instantiate(ExplosionRef, transform.position, Quaternion.identity);
+            Instantiate(
+                ExplosionRef,
+                transform.position,
+                Quaternion.identity
+            );
         }
 
         Destroy(gameObject);

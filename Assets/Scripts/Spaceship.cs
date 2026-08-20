@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Spaceship : MonoBehaviour
@@ -76,7 +79,6 @@ public class Spaceship : MonoBehaviour
     // SCORE / MINERALS
     // =========================================================
 
-    public int Score = 0;
     public int MineralsCollected = 0;
 
 
@@ -394,14 +396,13 @@ public class Spaceship : MonoBehaviour
         Destroy(gameObject);
     }
 
-
     public void GameOver()
     {
         bool celebrateHiScore = false;
 
-        if (Score > GetHighScore())
+        if (MineralsCollected > GetHighMineralsCollected())
         {
-            SetHighScore(Score);
+            SetHighMineralsCollected(MineralsCollected);
 
             celebrateHiScore = true;
         }
@@ -410,19 +411,21 @@ public class Spaceship : MonoBehaviour
     }
 
 
+
     // =========================================================
-    // HIGH SCORE
+    // HIGH MINERALS
     // =========================================================
 
-    public int GetHighScore()
+    public int GetHighMineralsCollected()
     {
-        return PlayerPrefs.GetInt("Highscore", 0);
+        return PlayerPrefs.GetInt("HighMineralsCollected", 0);
     }
 
 
-    public void SetHighScore(int score)
+    public void SetHighMineralsCollected(int minerals)
     {
-        PlayerPrefs.SetInt("Highscore", score);
+        PlayerPrefs.SetInt("HighMineralsCollected", minerals);
         PlayerPrefs.Save();
     }
 }
+

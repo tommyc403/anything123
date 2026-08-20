@@ -1,14 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOverUI : MonoBehaviour
 {
     public TMP_Text ScoreTextBox, HiScoreTextBox;
+
     public GameObject ScorePanel, Celebrate;
+
     private Spaceship spaceShip;
+
     private void Start()
     {
         spaceShip = FindObjectOfType<Spaceship>();
@@ -17,8 +18,8 @@ public class GameOverUI : MonoBehaviour
 
     public void Show(bool celebrateHiScore)
     {
-        ScoreTextBox.text = "SCORE " + spaceShip.Score.ToString();
-        HiScoreTextBox.text = "HI SCORE " + spaceShip.GetHighScore().ToString();
+        ScoreTextBox.text = "SCORE " + spaceShip.MineralsCollected.ToString();
+        HiScoreTextBox.text = "HI SCORE " + spaceShip.GetHighMineralsCollected().ToString();
 
         ScorePanel.SetActive(true);
     }
@@ -32,6 +33,7 @@ public class GameOverUI : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
     public void ClickMainMenu()
     {
         SceneManager.LoadScene("Title");
